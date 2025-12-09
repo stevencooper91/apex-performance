@@ -150,22 +150,26 @@
         }
 
         .hero-image-container {
-            width: 100vw; /* Full viewport width */
-            max-width: 100%; /* Prevents overflow */
-            margin: 0 0 3rem 0; /* Remove side padding */
-            padding: 0; /* Remove padding */
+            width: 100vw;
+            max-width: 100%;
+            margin: 0 0 3rem 0;
+            padding: 0;
             position: relative;
             z-index: 1;
-            margin-left: calc(-50vw + 50%); /* Centers and extends full width */
+            left: 50%; /* Add this */
+            right: 50%; /* Add this */
+            margin-left: -50vw; /* Change from calc(-50vw + 50%) */
+            margin-right: -50vw; /* Add this */
         }
 
         .hero-main-image {
-             width: 100%;
+            width: 100%;
             height: auto;
-            display: block; /* Removes any extra spacing */
-            border-radius: 0; /* Remove border radius for full-width effect */
-            box-shadow: none; /* Remove Shadow - CHANGED */
+            display: block;
+            border-radius: 0;
+            box-shadow: none;
             animation: fadeInUp 1s ease-out;
+            margin: 0 auto; /* Add this to center the image itself */
         }
 
         @keyframes fadeInUp {
@@ -988,7 +992,7 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2>What Our <span class="accent">Partners</span> Say</h2>
+                <h2>Recommendations... </h2>
                 <p>Trusted by leading sports organisations worldwide</p>
             </div>
             
