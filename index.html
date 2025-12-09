@@ -150,19 +150,21 @@
         }
 
         .hero-image-container {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto 3rem;
-            padding: 0 5%;
+            width: 100vw; /* Full viewport width */
+            max-width: 100%; /* Prevents overflow */
+            margin: 0 0 3rem 0; /* Remove side padding */
+            padding: 0; /* Remove padding */
             position: relative;
             z-index: 1;
+            margin-left: calc(-50vw + 50%); /* Centers and extends full width */
         }
 
         .hero-main-image {
-            width: 100%;
+             width: 100%;
             height: auto;
-            border-radius: 15px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            display: block; /* Removes any extra spacing */
+            border-radius: 0; /* Remove border radius for full-width effect */
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3); /* Softer shadow */
             animation: fadeInUp 1s ease-out;
         }
 
@@ -859,10 +861,12 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Performance, <span class="highlight">Seen Clearly</span></h1>
-                <p class="tagline">— From the peak of experience</p>
+                <p class="tagline">— Bespoke Analysis Solutions, </p>
                 <p>
                     Bespoke data analysis for sports clubs and organisations. 
-                    With 13 years navigating elite environments, we've done the hard yards so you don't have to.
+                    Apex Performance was founded to help sports teams and organisations unlock the full potential of their performance analysis departments. Having spent years in elite sports environments, working with over 40 coaches, we understand the demands on Analysts. 
+                    We exist to provide expert support, bespoke projects, and high-pressure tournament assistance, delivering clarity, optimised workflows, and actionable insights. 
+                    By working collaboratively with existing staff, Apex Performance allows teams to operate more efficiently, make smarter use of their resources, and elevate performance without disruption.
                 </p>
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
@@ -877,24 +881,21 @@
         <div class="container">
             <div class="section-title">
                 <h2>The View from the <span class="accent">Apex</span></h2>
-                <p>Clarity comes from altitude. We've climbed to the peak so you can see your performance landscape clearly.</p>
+                <p>Clarity comes from altitude. Solutions come from Experience.</p>
             </div>
             
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Your Sherpa to Peak Performance</h3>
+                    <h3>Our Goal</h3>
                     <p>
-                        For over 13 years, we've navigated the complex terrain of elite sports environments—
-                        working with diverse players, coaches, and organisations across multiple contexts.
+                        Over more than a decade, we have been fortunate to work in some highly successful environments, with a variety of Coaches, Analysts, and Performance Departments. With the help of our experience, expertise and network, <span class="accent">Our goal is to deliver best in class analysis solutions to you.</span></h2>
                     </p>
                     <p>
-                        At Apex Performance, we believe the best insights come from experience and elevation. 
-                        Like a sherpa who knows every route to the summit, we guide you through your data 
-                        to reveal the clearest path to excellence.
+                        The hard work of the staff and ultimately, the performance of the players on the field, have meant that these organisations have achieved remarkable success. We have experienced it all, underachieving, overachieving, and everything in between.
                     </p>
                     <p>
-                        Our bespoke analysis isn't just about numbers—it's about understanding your unique 
-                        context and translating complex data into actionable clarity.
+                        Our bespoke analysis isn't just about numbers — it's about understanding your unique 
+                        context and translating it into actionable clarity. Like a sherpa who knows every route to the summit, we can guide you through your processes, data and analytics to add value where it matters most.
                     </p>
                 </div>
                 <div class="about-image">
