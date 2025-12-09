@@ -169,7 +169,8 @@
             border-radius: 0;
             box-shadow: none;
             animation: fadeInUp 1s ease-out;
-            margin: 0 auto; /* Add this to center the image itself */
+            object-fit: cover; /* Add this */
+            object-position: center; /* Add this - or try 'center top', '45% center', etc. */
         }
 
         @keyframes fadeInUp {
