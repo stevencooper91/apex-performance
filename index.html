@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Performance - Bespoke Data Analysis for Sports Excellence</title>
+    <meta name="description" content="Performance, seen clearly. Bespoke data analysis for sports clubs and organisations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS VARIABLES - EASY TO CUSTOMIZE ===== */
+        :root {
+            /* Brand Colors from your logo */
+            --apex-black: #1a1a1a;
+            --apex-white: #ffffff;
+            --apex-yellow: #FFD700;
+            --apex-blue: #2B4B8C;
+            --apex-gray: #f5f5f5;
+            --apex-dark-gray: #3a3a3a;
+            
+            /* Typography */
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Outfit', sans-serif;
+            --font-accent: 'Space Mono', monospace;
+        }
+
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--apex-black);
+            background: var(--apex-white);
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            border-bottom: 2px solid var(--apex-yellow);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--apex-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--apex-yellow);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--apex-yellow);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--apex-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--apex-black) 0%, var(--apex-dark-gray) 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 48%, var(--apex-yellow) 48%, var(--apex-yellow) 52%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, var(--apex-blue) 48%, var(--apex-blue) 52%, transparent 52%);
+            background-size: 60px 60px;
+            opacity: 0.03;
+            animation: patternMove 20s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { background-position: 0 0, 0 0; }
+            100% { background-position: 60px 60px, -60px 60px; }
+        }
+
+        .hero-image-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+            padding: 0 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: var(--apex-white);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-text h1 .highlight {
+            color: var(--apex-yellow);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-text .tagline {
+            font-size: 1.5rem;
+            color: var(--apex-white);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-family: var(--font-accent);
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--apex-white);
+            opacity: 0.8;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--apex-yellow);
+            color: var(--apex-black);
+        }
+
+        .btn-primary:hover {
+            background: #FFED4E;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--apex-white);
+            border: 2px solid var(--apex-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--apex-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(43, 75, 140, 0.3);
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            padding: 6rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--apex-black);
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .section-title .accent {
+            color: var(--apex-blue);
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--apex-dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            background: var(--apex-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--apex-blue);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--apex-dark-gray);
+        }
+
+        .about-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pillar {
+            text-align: center;
+            padding: 2rem;
+            background: var(--apex-white);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pillar:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .pillar-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .pillar h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--apex-black);
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar p {
+            font-size: 0.95rem;
+            color: var(--apex-dark-gray);
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--apex-white);
+            padding: 3rem;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--apex-yellow);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(43, 75, 140, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+            border-top-color: var(--apex-blue);
+        }
+
+        .service-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--apex-yellow);
+            opacity: 0.2;
+            line-height: 1;
+            margin-bottom: 1rem;
+            font-family: var(--font-accent);
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--apex-black);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-tagline {
+            font-size: 1.1rem !important;
+            font-weight: 600 !important;
+            color: var(--apex-blue) !important;
+            margin-bottom: 1.5rem !important;
+            font-family: var(--font-accent);
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--apex-dark-gray);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--apex-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            margin-top: 1rem;
+        }
+
+        .service-link:hover {
+            color: var(--apex-yellow);
+            gap: 1rem;
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials {
+            background: linear-gradient(135deg, var(--apex-blue) 0%, #1e3a6f 100%);
+            color: var(--apex-white);
+        }
+
+        .testimonials .section-title h2,
+        .testimonials .section-title p {
+            color: var(--apex-white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--apex-yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--apex-black);
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            background: var(--apex-gray);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            color: var(--apex-blue);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--apex-dark-gray);
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+            color: var(--apex-dark-gray);
+        }
+
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--apex-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .contact-form {
+            background: var(--apex-white);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--apex-black);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--apex-blue);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-group .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-group .checkbox-group input {
+            width: auto;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--apex-black);
+            color: var(--apex-white);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand img {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 1rem;
+            opacity: 0.8;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 2px solid var(--apex-dark-gray);
+            background: transparent;
+            color: var(--apex-white);
+            border-radius: 5px;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .newsletter-form button {
+            padding: 0.8rem 1.5rem;
+            background: var(--apex-yellow);
+            color: var(--apex-black);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #FFED4E;
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--apex-yellow);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: var(--apex-white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease, color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            opacity: 1;
+            color: var(--apex-yellow);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--apex-dark-gray);
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 968px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(26, 26, 26, 0.98);
+                flex-direction: column;
+                padding: 3rem;
+                gap: 2rem;
+                transition: right 0.3s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .hero-text .tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero-image-container {
+                margin-bottom: 2rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text .tagline {
+                font-size: 1rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <!-- LOGO IMAGE - Replace src with your actual logo path -->
+                <img src="logo-white.png" alt="Apex Performance Logo">
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <!-- Hero Image Above Headline -->
+        <div class="hero-image-container">
+            <img src="hero-image.png" alt="Apex Performance - Person at mountain peak" class="hero-main-image">
+        </div>
+
+        <!-- Hero Content Below Image -->
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Performance, <span class="highlight">Seen Clearly</span></h1>
+                <p class="tagline">— From the peak of experience</p>
+                <p>
+                    Bespoke data analysis for sports clubs and organisations. 
+                    With 13 years navigating elite environments, we've done the hard yards so you don't have to.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
+                    <a href="#services" class="btn btn-secondary">Explore Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>The View from the <span class="accent">Apex</span></h2>
+                <p>Clarity comes from altitude. We've climbed to the peak so you can see your performance landscape clearly.</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Sherpa to Peak Performance</h3>
+                    <p>
+                        For over 13 years, we've navigated the complex terrain of elite sports environments—
+                        working with diverse players, coaches, and organisations across multiple contexts.
+                    </p>
+                    <p>
+                        At Apex Performance, we believe the best insights come from experience and elevation. 
+                        Like a sherpa who knows every route to the summit, we guide you through your data 
+                        to reveal the clearest path to excellence.
+                    </p>
+                    <p>
+                        Our bespoke analysis isn't just about numbers—it's about understanding your unique 
+                        context and translating complex data into actionable clarity.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <!-- ABOUT IMAGE - Add relevant image here -->
+                    <img src="about-image.jpg" alt="Data analysis visualization">
+                </div>
+            </div>
+
+            <div class="about-pillars">
+                <div class="pillar">
+                    <div class="pillar-icon">🏔️</div>
+                    <h4>Peak Quality</h4>
+                    <p>Solutions at the apex of excellence, refined through years of experience</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">👁️</div>
+                    <h4>Clear Vision</h4>
+                    <p>See your performance landscape with unparalleled clarity</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">🧭</div>
+                    <h4>Guided Expertise</h4>
+                    <p>We've done the hard yards navigating complex environments</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core <span class="accent">Services</span></h2>
+                <p>Three distinct approaches to elevate your analysis department and drive performance</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-number">01</div>
+                    <h3>Bespoke Projects</h3>
+                    <p class="service-tagline">Targeted Solutions. Real Impact.</p>
+                    <p>
+                        For teams that know where their challenges lie, bespoke projects provide tailored 
+                        solutions to solve key performance questions, optimise workflows, and support 
+                        recruitment and other strategic objectives.
+                    </p>
+                    <p>
+                        We deliver precise, actionable insights that drive measurable outcomes and elevate 
+                        the way your analysis department works.
+                    </p>
+                    <a href="#contact" class="service-link">Discuss Your Project →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-number">02</div>
+                    <h3>Auditing & Process Optimisation</h3>
+                    <p class="service-tagline">Unlocking Time.</p>
+                    <p>
+                        For teams feeling overwhelmed by processes or inefficiencies, our auditing service 
+                        identifies bottlenecks and optimises workflows. Over a few days, we assess your 
+                        current systems and provide actionable recommendations.
+                    </p>
+                    <p>
+                        Free up time for analysts to focus on coaching relationships and high-value tasks, 
+                        while enhancing the overall performance of your department.
+                    </p>
+                    <a href="#contact" class="service-link">Optimize Your Workflows →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-number">03</div>
+                    <h3>In-Tournament / High-Pressure Support</h3>
+                    <p class="service-tagline">Performance Under Pressure.</p>
+                    <p>
+                        During high-stakes periods, such as in-season peaks or tournaments, we provide 
+                        expert support to implement and execute analysis processes seamlessly.
+                    </p>
+                    <p>
+                        Our focus is on maintaining precision and clarity under pressure, helping your 
+                        team stay on top of critical performance data and make informed, timely decisions 
+                        when it matters most.
+                    </p>
+                    <a href="#contact" class="service-link">Get High-Stakes Support →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our <span class="accent">Partners</span> Say</h2>
+                <p>Trusted by leading sports organisations worldwide</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "The clarity and depth of analysis provided by Apex Performance has been game-changing 
+                        for our coaching staff. They translate complex data into insights we can actually use."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div class="author-info">
+                            <h4>John Doe</h4>
+                            <p>Head Coach, Elite FC</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Working with Apex Performance feels like having an experienced guide who's already 
+                        navigated every challenge we face. Their bespoke approach is exactly what we needed."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Sarah Mitchell</h4>
+                            <p>Performance Director, National Team</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "The dashboards and reports are not only visually impressive but incredibly practical. 
+                        For the first time, we're making truly data-informed decisions."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>Michael Roberts</h4>
+                            <p>Director of Football, Pro Club</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Let's Reach the <span class="accent">Peak</span> Together</h2>
+                <p>Schedule a consultation to discuss your specific needs</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>
+                        Ready to gain clarity on your performance data? Whether you're looking 
+                        for a complete analysis solution or need support with a specific project, 
+                        we're here to help you reach new heights.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📧</div>
+                            <div>
+                                <strong>Email</strong><br>
+                                <a href="/cdn-cgi/l/email-protection#14777b7a60757760547564716c39647166723a777b79" style="color: var(--apex-blue); text-decoration: none;"><span class="__cf_email__" data-cfemail="75161a1b01141601351405100d58051007135b161a18">[email&#160;protected]</span></a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📱</div>
+                            <div>
+                                <strong>Phone</strong><br>
+                                <a href="tel:+33788373486" style="color: var(--apex-blue); text-decoration: none;">+33 7 88 37 34 86</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="organization">Organisation</label>
+                            <input type="text" id="organization" name="organization">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interest</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="bespoke">Bespoke Projects</option>
+                                <option value="auditing">Auditing & Process Optimisation</option>
+                                <option value="tournament">In-Tournament / High-Pressure Support</option>
+                                <option value="consultation">General Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Subscribe to our newsletter for insights from the inner circle</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="logo-white.png" alt="Apex Performance">
+                <p>
+                    Bespoke data analysis for sports excellence. 
+                    Performance, seen clearly from the peak.
+                </p>
+                <p style="font-family: var(--font-accent); font-size: 0.9rem; opacity: 0.7;">
+                    Join our inner circle for exclusive insights
+                </p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Bespoke Projects</a></li>
+                    <li><a href="#services">Auditing & Process Optimisation</a></li>
+                    <li><a href="#services">In-Tournament Support</a></li>
+                    <li><a href="#contact">Get in Touch</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Apex Performance. All rights reserved. | Performance, seen clearly.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.textContent = '☰';
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // You would typically send this to a server here
+            console.log('Form submitted:', data);
+            
+            // Show success message (you can customize this)
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Newsletter form handler
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            // You would typically send this to a server here
+            console.log('Newsletter signup:', email);
+            
+            // Show success message
+            alert('Thanks for subscribing to our insights!');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scroll with offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80; // Height of fixed nav
+                    const targetPosition = target
