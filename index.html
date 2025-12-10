@@ -150,27 +150,21 @@
         }
 
         .hero-image-container {
-            width: 100vw;
-            max-width: 100%;
-            margin: 0 0 3rem 0;
-            padding: 0;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto 3rem auto;
+            padding: 0 5%;
             position: relative;
             z-index: 1;
-            left: 50%; /* Add this */
-            right: 50%; /* Add this */
-            margin-left: -50vw; /* Change from calc(-50vw + 50%) */
-            margin-right: -50vw; /* Add this */
         }
 
         .hero-main-image {
-            width: 100%;
+         width: 100%;
             height: auto;
             display: block;
             border-radius: 0;
             box-shadow: none;
             animation: fadeInUp 1s ease-out;
-            object-fit: cover; /* Add this */
-            object-position: center; /* Add this - or try 'center top', '45% center', etc. */
         }
 
         @keyframes fadeInUp {
