@@ -45,7 +45,16 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(26, 26, 26, 0.95);
+            background: var(--apex-black);
+            /* Add diagonal stripe pattern */
+            background-image: 
+                repeating-linear-gradient(
+                    -45deg,
+                    #1a1a1a,
+                    #1a1a1a 20px,
+                    #252525 20px,
+                    #252525 40px
+                );
             backdrop-filter: blur(10px);
             padding: 1.5rem 5%;
             z-index: 1000;
