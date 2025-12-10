@@ -135,7 +135,7 @@
             background: linear-gradient(135deg, var(--apex-black) 0%, var(--apex-dark-gray) 100%);
             position: relative;
             overflow: hidden;
-            padding-top: 80px;
+            padding-top: 120px;
         }
 
         .hero::before {
@@ -161,7 +161,7 @@
         .hero-image-container {
             width: 100%;
             max-width: 1400px;
-            margin: 0 auto 3rem auto;
+            margin: 0 auto 2rem auto;
             padding: 0 5%;
             position: relative;
             z-index: 1;
@@ -174,6 +174,7 @@
             border-radius: 0;
             box-shadow: none;
             animation: fadeInUp 1s ease-out;
+            opacity: 0.5;
         }
 
         @keyframes fadeInUp {
@@ -197,12 +198,12 @@
         }
 
         .hero-text h1 {
-            font-size: 4.5rem;
+            font-size: 3.2rem;
             font-weight: 900;
             color: var(--apex-white);
             line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
@@ -216,7 +217,7 @@
             font-size: 1.5rem;
             color: var(--apex-white);
             opacity: 0.9;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-family: var(--font-accent);
             letter-spacing: 1px;
             animation: fadeInUp 1s ease-out 0.4s both;
@@ -226,7 +227,7 @@
             font-size: 1.2rem;
             color: var(--apex-white);
             opacity: 0.8;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             line-height: 1.8;
             max-width: 800px;
             margin-left: auto;
@@ -281,12 +282,12 @@
 
         /* ===== SECTION STYLES ===== */
         section {
-            padding: 6rem 5%;
+            padding: 4rem 5%;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 2.5rem;
         }
 
         .section-title h2 {
@@ -321,21 +322,21 @@
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: center;
         }
 
         .about-text h3 {
             font-size: 2rem;
             color: var(--apex-blue);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             font-weight: 700;
         }
 
         .about-text p {
             font-size: 1.1rem;
             line-height: 1.9;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: var(--apex-dark-gray);
         }
 
@@ -343,7 +344,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .pillar {
@@ -490,72 +491,161 @@
         }
 
         /* ===== TESTIMONIALS SECTION ===== */
-        .testimonials {
-            background: linear-gradient(135deg, var(--apex-blue) 0%, #1e3a6f 100%);
-            color: var(--apex-white);
-        }
+.testimonials {
+    background: linear-gradient(135deg, var(--apex-blue) 0%, #1e3a6f 100%);
+    color: var(--apex-white);
+}
 
-        .testimonials .section-title h2,
-        .testimonials .section-title p {
-            color: var(--apex-white);
-        }
+.testimonials .section-title h2,
+.testimonials .section-title p {
+    color: var(--apex-white);
+}
 
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
+/* Carousel Container */
+.testimonials-carousel {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 70px;
+}
 
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease;
-        }
+.testimonials-carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
 
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
-        }
+/* Track that holds all testimonials */
+.testimonials-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 2rem;
+    will-change: transform;
+}
 
-        .testimonial-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
+/* Individual testimonial cards */
+.testimonial-card {
+    flex: 0 0 calc((100% - 4rem) / 3);
+    width: calc((100% - 4rem) / 3);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+}
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+.testimonial-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
 
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--apex-yellow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--apex-black);
-        }
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 
-        .author-info h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--apex-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--apex-black);
+    flex-shrink: 0;
+}
 
-        .author-info p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
+.author-info h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.author-info p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Navigation Arrows */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--apex-yellow);
+    color: var(--apex-black);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.carousel-nav:hover {
+    background: #FFED4E;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.prev {
+    left: 0;
+}
+
+.carousel-nav.next {
+    right: 0;
+}
+
+/* Dot Indicators */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: var(--apex-yellow);
+    width: 30px;
+    border-radius: 6px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .testimonials-carousel {
+        padding: 0 50px;
+    }
+    
+    .carousel-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .testimonial-card {
+        min-width: 100%;
+    }
+}
 
         /* ===== CONTACT SECTION ===== */
         .contact {
@@ -565,13 +655,13 @@
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
         }
 
         .contact-info h3 {
             font-size: 2rem;
             color: var(--apex-blue);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             font-weight: 700;
         }
 
@@ -579,13 +669,13 @@
             font-size: 1.1rem;
             line-height: 1.8;
             color: var(--apex-dark-gray);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .contact-details {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .contact-item {
@@ -615,7 +705,7 @@
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .form-group label {
@@ -663,7 +753,7 @@
         footer {
             background: var(--apex-black);
             color: var(--apex-white);
-            padding: 4rem 5% 2rem;
+            padding: 3rem 5% 1.5rem;
         }
 
         .footer-content {
@@ -671,8 +761,8 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .footer-brand img {
@@ -781,7 +871,7 @@
             }
 
             .hero-text h1 {
-                font-size: 3rem;
+                font-size: 2.2rem;
             }
 
             .hero-text .tagline {
@@ -812,7 +902,7 @@
 
         @media (max-width: 600px) {
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .hero-text .tagline {
@@ -869,9 +959,9 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Performance, <span class="highlight">Seen Clearly</span></h1>
-                <p class="tagline">— Bespoke Analysis Solutions, </p>
+                <p class="tagline">— Bespoke Analysis Solutions </p>
                 <p>
-                    Bespoke data analysis for sports clubs and organisations. 
+                    <strong>Bespoke data analysis for sports clubs and organisations.</strong> 
                     Apex Performance was founded to help sports teams and organisations unlock the full potential of their performance analysis departments. Having spent years in elite sports environments, working with over 40 coaches, we understand the demands on Analysts. 
                     We exist to provide expert support, bespoke projects, and high-pressure tournament assistance, delivering clarity, optimised workflows, and actionable insights. 
                     By working collaboratively with existing staff, Apex Performance allows teams to operate more efficiently, make smarter use of their resources, and elevate performance without disruption.
@@ -889,17 +979,17 @@
         <div class="container">
             <div class="section-title">
                 <h2>The View from the <span class="accent">Apex</span></h2>
-                <p>Clarity comes from altitude. Solutions come from Experience.</p>
+                <p>Clarity through collaboration.</p>
             </div>
             
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Our Goal</h3>
+                    <h3>Our Philosophy</h3>
                     <p>
-                        Over more than a decade, we have been fortunate to work in some highly successful environments, with a variety of Coaches, Analysts, and Performance Departments. With the help of our experience, expertise and network, <span class="accent">Our goal is to deliver best in class analysis solutions to you.</span></h2>
+                        Over more than a decade, we have been fortunate to work in some highly successful environments, with a variety of Coaches, Analysts, and Performance Departments. The hard work of the staff and ultimately, the performance of the players on the field, have meant that these organisations have achieved remarkable success. 
                     </p>
                     <p>
-                        The hard work of the staff and ultimately, the performance of the players on the field, have meant that these organisations have achieved remarkable success. We have experienced it all, underachieving, overachieving, and everything in between.
+                        With the help of our experience, expertise and network, we want to help you reach your own performance peaks. <strong><span class="accent" style="color: var(--apex-blue);">Our goal:</span></strong> <strong>deliver best in class analysis solutions to your team, so you can focus on what matters most — coaching and developing your players to perform at their absolute best.</strong>
                     </p>
                     <p>
                         Our bespoke analysis isn't just about numbers — it's about understanding your unique 
@@ -992,15 +1082,24 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS SECTION -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Recommendations... </h2>
-                <p>Trusted by leading sports organisations worldwide</p>
-            </div>
+   <!-- TESTIMONIALS SECTION -->
+<section id="testimonials" class="testimonials">
+    <div class="container">
+        <div class="section-title">
+            <h2>Testimonials</h2>
+            <p>What can you expect from our collaboration?</p>
+        </div>
+        
+        <!-- Carousel Container -->
+        <div class="testimonials-carousel">
+            <!-- Navigation Arrows -->
+            <button class="carousel-nav prev" id="prevBtn">‹</button>
             
-            <div class="testimonials-grid">
+            <!-- Carousel Wrapper for overflow -->
+            <div class="testimonials-carousel-wrapper">
+                <!-- Testimonials Track (Slides Container) -->
+                <div class="testimonials-track">
+                <!-- Testimonial 1 -->
                 <div class="testimonial-card">
                     <p class="testimonial-text">
                         "The clarity and depth of analysis provided by Apex Performance has been game-changing 
@@ -1015,6 +1114,7 @@
                     </div>
                 </div>
 
+                <!-- Testimonial 2 -->
                 <div class="testimonial-card">
                     <p class="testimonial-text">
                         "Working with Apex Performance feels like having an experienced guide who's already 
@@ -1029,6 +1129,7 @@
                     </div>
                 </div>
 
+                <!-- Testimonial 3 -->
                 <div class="testimonial-card">
                     <p class="testimonial-text">
                         "The dashboards and reports are not only visually impressive but incredibly practical. 
@@ -1042,9 +1143,87 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Your fourth testimonial text here..."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AB</div>
+                        <div class="author-info">
+                            <h4>Alex Brown</h4>
+                            <p>Analytics Manager, Pro Team</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Your fifth testimonial text here..."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CD</div>
+                        <div class="author-info">
+                            <h4>Chris Davis</h4>
+                            <p>Technical Director, Academy</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Your sixth testimonial text here..."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EF</div>
+                        <div class="author-info">
+                            <h4>Emma Foster</h4>
+                            <p>Head of Performance, National Squad</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 7 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Your seventh testimonial text here..."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">GH</div>
+                        <div class="author-info">
+                            <h4>George Harris</h4>
+                            <p>CEO, Sports Club</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 8 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Your eighth testimonial text here..."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">IJ</div>
+                        <div class="author-info">
+                            <h4>Isabel Jones</h4>
+                            <p>Performance Analyst, Premier Club</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <button class="carousel-nav next" id="nextBtn">›</button>
         </div>
-    </section>
+
+        <!-- Dot Indicators -->
+        <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+</section>
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="contact">
@@ -1235,4 +1414,82 @@
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     const offset = 80; // Height of fixed nav
-                    const targetPosition = target
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===== TESTIMONIALS CAROUSEL =====
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        // Create dots
+        function createDots() {
+            const dotsContainer = document.getElementById('carouselDots');
+            dotsContainer.innerHTML = '';
+            
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot';
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        // Move carousel
+        function moveCarousel(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            
+            updateCarousel();
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Update carousel position and dots
+        function updateCarousel() {
+            const track = document.querySelector('.testimonials-track');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const wrapper = document.querySelector('.testimonials-carousel-wrapper');
+            
+            if (!track || !wrapper) return;
+            
+            // Calculate exact pixel movement
+            const wrapperWidth = wrapper.offsetWidth;
+            const gap = 32; // 2rem gap between cards
+            const cardWidth = (wrapperWidth - (2 * gap)) / 3;
+            const slideWidth = wrapperWidth; // Move by full wrapper width each time
+            
+            const movePixels = currentSlide * slideWidth;
+            
+            track.style.transform = `translateX(-${movePixels}px)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            createDots();
+            updateCarousel();
+            
+            // Add event listeners to buttons
+            document.getElementById('prevBtn').addEventListener('click', () => moveCarousel(-1));
+            document.getElementById('nextBtn').addEventListener('click', () => moveCarousel(1));
+            
+            // Recalculate on window resize
+            window.addEventListener('resize', updateCarousel);
+        });
