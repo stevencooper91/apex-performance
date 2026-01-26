@@ -5,23 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apex Performance - Bespoke Data Analysis for Sports Excellence</title>
     <meta name="description" content="Performance, seen clearly. Bespoke data analysis for sports clubs and organisations.">
+    
+    <!-- SEO: Alternate language versions -->
+    <link rel="alternate" hreflang="en" href="https://stevencooper91.github.io/apex-performance/index.html">
+    <link rel="alternate" hreflang="fr" href="https://stevencooper91.github.io/apex-performance/index-fr.html">
+    <link rel="alternate" hreflang="x-default" href="https://stevencooper91.github.io/apex-performance/index.html">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Share+Tech&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* ===== CSS VARIABLES - EASY TO CUSTOMIZE ===== */
         :root {
             /* Brand Colors from your logo */
-            --apex-black: #1a1a1a;
+            --apex-black: #0d0d0d;
             --apex-white: #ffffff;
             --apex-yellow: #FFD700;
             --apex-blue: #2B4B8C;
             --apex-gray: #f5f5f5;
-            --apex-dark-gray: #3a3a3a;
+            --apex-dark-gray: #1a1a1a;
+            --apex-silver: #C0C0C0;
             
             /* Typography */
             --font-heading: 'Outfit', sans-serif;
-            --font-body: 'Outfit', sans-serif;
+            --font-body: 'Share Tech', sans-serif;
             --font-accent: 'Space Mono', monospace;
         }
 
@@ -50,15 +57,15 @@
             background-image: 
                 repeating-linear-gradient(
                     -45deg,
-                    #1a1a1a,
+                    #0d0d0d,
+                    #0d0d0d 20px,
                     #1a1a1a 20px,
-                    #252525 20px,
-                    #252525 40px
+                    #1a1a1a 40px
                 );
             backdrop-filter: blur(10px);
             padding: 1.5rem 5%;
             z-index: 1000;
-            border-bottom: 2px solid var(--apex-yellow);
+            border-bottom: 2px solid var(--apex-silver);
         }
 
         nav .container {
@@ -146,10 +153,10 @@
             right: 0;
             bottom: 0;
             background: 
-                linear-gradient(45deg, transparent 48%, var(--apex-yellow) 48%, var(--apex-yellow) 52%, transparent 52%),
+                linear-gradient(45deg, transparent 48%, var(--apex-silver) 48%, var(--apex-silver) 52%, transparent 52%),
                 linear-gradient(-45deg, transparent 48%, var(--apex-blue) 48%, var(--apex-blue) 52%, transparent 52%);
             background-size: 60px 60px;
-            opacity: 0.03;
+            opacity: 0.05;
             animation: patternMove 20s linear infinite;
         }
 
@@ -174,7 +181,6 @@
             border-radius: 0;
             box-shadow: none;
             animation: fadeInUp 1s ease-out;
-            opacity: 0.5;
         }
 
         @keyframes fadeInUp {
@@ -387,6 +393,91 @@
             object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+                /* ===== LOGOS SECTION ===== */
+        .logos-section {
+            padding: 4rem 5%;
+            background: var(--apex-gray);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logos-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logos-title {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--apex-dark-gray);
+            opacity: 0.2;
+            margin-bottom: 3rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: var(--font-accent);
+        }
+
+        .logos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 3rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .logo-item {
+            width: 100%;
+            max-width: 180px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            transition: all 0.3s ease;
+            filter: grayscale(100%) opacity(0.6);
+        }
+
+        .logo-item:hover {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.05);
+        }
+
+        .logo-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Responsive adjustments for logos */
+        @media (max-width: 768px) {
+            .logos-container {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 2rem;
+            }
+
+            .logo-item {
+                max-width: 140px;
+                height: 80px;
+            }
+
+            .logos-title {
+                font-size: 0.85rem;
+                margin-bottom: 2rem;
+            }
+
+            .logos-section {
+                padding: 3rem 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logos-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
         }
 
         /* ===== SERVICES SECTION ===== */
@@ -949,6 +1040,10 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li style="border-left: 2px solid var(--apex-yellow); padding-left: 1rem;">
+                    <a href="index.html" style="font-weight: 700; color: var(--apex-yellow);">EN</a> | 
+                    <a href="index-fr.html">FR</a>
+                </li>
             </ul>
             <button class="menu-toggle" id="menuToggle">☰</button>
         </div>
@@ -969,7 +1064,6 @@
                 <p>
                     <strong>Bespoke data analysis for sports clubs and organisations.</strong> 
                     Apex Performance was founded to help sports teams and organisations unlock the full potential of their performance analysis departments. Having spent years in elite sports environments, working with over 40 coaches, we understand the demands on Analysts. 
-                    We exist to provide expert support, bespoke projects, and high-pressure tournament assistance, delivering clarity, optimised workflows, and actionable insights. 
                     By working collaboratively with existing staff, Apex Performance allows teams to operate more efficiently, make smarter use of their resources, and elevate performance without disruption.
                 </p>
                 <div class="hero-cta">
@@ -979,6 +1073,36 @@
             </div>
         </div>
     </section>
+
+        <!-- LOGOS SECTION - Trusted By -->
+    <section class="logos-section">
+        <div class="container">
+            <div class="logos-wrapper">
+                <h3 class="logos-title">Trusted by Elite Organizations</h3>
+                <div class="logos-container">
+                    <div class="logo-item">
+                        <img src="logo1.png" alt="Organization Logo 1">
+                    </div>
+                    <div class="logo-item">
+                        <img src="logo2.png" alt="Organization Logo 2">
+                    </div>
+                    <div class="logo-item">
+                        <img src="logo3.png" alt="Organization Logo 3">
+                    </div>
+                    <div class="logo-item">
+                        <img src="logo4.png" alt="Organization Logo 4">
+                    </div>
+                    <div class="logo-item">
+                        <img src="logo5.png" alt="Organization Logo 5">
+                    </div>
+                    <div class="logo-item">
+                        <img src="logo6.png" alt="Organization Logo 6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- ABOUT SECTION -->
     <section id="about" class="about">
@@ -992,19 +1116,18 @@
                 <div class="about-text">
                     <h3>Our Philosophy</h3>
                     <p>
-                        Over more than a decade, we have been fortunate to work in some highly successful environments, with a variety of Coaches, Analysts, and Performance Departments. The hard work of the staff and ultimately, the performance of the players on the field, have meant that these organisations have achieved remarkable success. 
+                        Over a decade working with elite Coaches, Analysts, and Performance Departments has taught us one thing: success happens when staff can focus on what they do best. 
                     </p>
                     <p>
-                        With the help of our experience, expertise and network, we want to help you reach your own performance peaks. <strong><span class="accent" style="color: var(--apex-blue);">Our goal:</span></strong> <strong>deliver best in class analysis solutions to your team, so you can focus on what matters most — coaching and developing your players to perform at their absolute best.</strong>
+                       <strong><span class="accent" style="color: var(--apex-blue);">Our goal:</span></strong> <strong>deliver best in class analysis solutions to your team, so you can focus on what matters most — coaching and developing your players to perform at their absolute best.</strong>
                     </p>
                     <p>
-                        Our bespoke analysis isn't just about numbers — it's about understanding your unique 
-                        context and translating it into actionable clarity. Like a sherpa who knows every route to the summit, we can guide you through your processes, data and analytics to add value where it matters most.
+                        We don't just crunch numbers. We understand your context and translate it into actionable clarity. Like a sherpa who knows every route to the summit, we guide you through your processes, data, and analytics to add value where it matters most.
                     </p>
                 </div>
                 <div class="about-image">
                     <!-- ABOUT IMAGE - Add relevant image here -->
-                    <img src="about-image.jpg" alt="Data analysis visualization">
+                    <img id="aboutImage" src="about-image.jpg" alt="Data analysis visualization">
                 </div>
             </div>
 
@@ -1046,10 +1169,6 @@
                         solutions to solve key performance questions, optimise workflows, and support 
                         recruitment and other strategic objectives.
                     </p>
-                    <p>
-                        We deliver precise, actionable insights that drive measurable outcomes and elevate 
-                        the way your analysis department works.
-                    </p>
                     <a href="#contact" class="service-link">Discuss Your Project →</a>
                 </div>
 
@@ -1058,13 +1177,9 @@
                     <h3>Auditing & Process Optimisation</h3>
                     <p class="service-tagline">Unlocking Time.</p>
                     <p>
-                        For teams feeling overwhelmed by processes or inefficiencies, our auditing service 
+                        Free up time for analysts to focus on coaching relationships and high-value tasks, our auditing service 
                         identifies bottlenecks and optimises workflows. Over a few days, we assess your 
                         current systems and provide actionable recommendations.
-                    </p>
-                    <p>
-                        Free up time for analysts to focus on coaching relationships and high-value tasks, 
-                        while enhancing the overall performance of your department.
                     </p>
                     <a href="#contact" class="service-link">Optimize Your Workflows →</a>
                 </div>
@@ -1074,13 +1189,8 @@
                     <h3>In-Tournament / High-Pressure Support</h3>
                     <p class="service-tagline">Performance Under Pressure.</p>
                     <p>
-                        During high-stakes periods, such as in-season peaks or tournaments, we provide 
+                        Our focus is on maintaining precision and clarity under pressure. During high-stakes periods, such as in-season peaks or tournaments, we provide 
                         expert support to implement and execute analysis processes seamlessly.
-                    </p>
-                    <p>
-                        Our focus is on maintaining precision and clarity under pressure, helping your 
-                        team stay on top of critical performance data and make informed, timely decisions 
-                        when it matters most.
                     </p>
                     <a href="#contact" class="service-link">Get High-Stakes Support →</a>
                 </div>
@@ -1256,7 +1366,7 @@
                             <div class="contact-item-icon">📧</div>
                             <div>
                                 <strong>Email</strong><br>
-                                <a href="/cdn-cgi/l/email-protection#14777b7a60757760547564716c39647166723a777b79" style="color: var(--apex-blue); text-decoration: none;"><span class="__cf_email__" data-cfemail="75161a1b01141601351405100d58051007135b161a18">[email&#160;protected]</span></a>
+                                <a href="mailto:contact@apex-perf.com" style="color: var(--apex-blue); text-decoration: none;">contact@apex-perf.com</a>
                             </div>
                         </div>
                         
@@ -1374,7 +1484,7 @@
     </footer>
 
     <!-- JAVASCRIPT -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
@@ -1405,6 +1515,12 @@
             contactSubmitBtn.textContent = "Sending...";
             contactSubmitBtn.disabled = true;
 
+            // Debug: Log what we're sending
+            console.log('Submitting contact form...');
+            for (let [key, value] of formData.entries()) {
+                console.log(key + ': ' + value);
+            }
+
             try {
                 const response = await fetch("https://api.web3forms.com/submit", {
                     method: "POST",
@@ -1412,16 +1528,19 @@
                 });
 
                 const data = await response.json();
+                console.log('Response:', data);
 
                 if (response.ok) {
-                    alert("Success! Your message has been sent. We'll get back to you soon.");
+                    alert("Thank you for your interest in connecting, we will be in contact very soon.\n\nOur dedicated email hours are primarily at the end of the week.\n\nTeam APEX");
                     contactForm.reset();
                 } else {
                     alert("Error: " + data.message);
+                    console.error('Error details:', data);
                 }
 
             } catch (error) {
                 alert("Something went wrong. Please try again.");
+                console.error('Fetch error:', error);
             } finally {
                 contactSubmitBtn.textContent = originalText;
                 contactSubmitBtn.disabled = false;
@@ -1525,4 +1644,19 @@
                     showPage(parseInt(dot.dataset.page));
                 });
             });
+            
+            // ===== ABOUT IMAGE CYCLING =====
+            const aboutImage = document.getElementById('aboutImage');
+            const aboutImages = ['about-image.jpg', 'about-image2.jpg'];
+            let currentAboutImageIndex = 0;
+            
+            if (aboutImage) {
+                setInterval(() => {
+                    currentAboutImageIndex = (currentAboutImageIndex + 1) % aboutImages.length;
+                    aboutImage.src = aboutImages[currentAboutImageIndex];
+                }, 5000); // Change image every 5 seconds
+            }
         });
+    </script>
+</body>
+</html>
