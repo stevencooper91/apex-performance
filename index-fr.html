@@ -1374,7 +1374,8 @@
                             <textarea id="message" name="message" required></textarea>
                         </div>
                         
-                        <div class="form-group checkbox-group">
+                        <!-- HIDDEN UNTIL 2027 - Newsletter signup checkbox -->
+                        <div class="form-group checkbox-group" style="display: none;">
                             <input type="checkbox" id="newsletter" name="newsletter" value="yes">
                             <label for="newsletter">S'abonner à notre newsletter pour des informations du cercle intérieur</label>
                         </div>
@@ -1395,10 +1396,11 @@
                     Analyse de données sur mesure pour l'excellence sportive. 
                     Performance, vue clairement depuis le sommet.
                 </p>
-                <p style="font-family: var(--font-accent); font-size: 0.9rem; opacity: 0.7;">
+                <!-- HIDDEN UNTIL 2027 - Inner circle newsletter signup -->
+                <p style="font-family: var(--font-accent); font-size: 0.9rem; opacity: 0.7; display: none;">
                     Rejoignez notre cercle intérieur pour des informations exclusives
                 </p>
-                <form class="newsletter-form" id="newsletterForm">
+                <form class="newsletter-form" id="newsletterForm" style="display: none;">
                     <input type="hidden" name="access_key" value="d300ddd5-9001-46bc-b324-ad8c71ded330">
                     <input type="hidden" name="subject" value="Abonnement Newsletter - Apex Performance">
                     <input type="hidden" name="from_name" value="Newsletter Apex Performance">
